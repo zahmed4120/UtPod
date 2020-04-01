@@ -89,12 +89,14 @@ int UtPod::removeSong(Song const &s){
 
     if(ptr -> s == s){
         songs = ptr -> next;
+        delete ptr;
         return 0;
     }
 
     while(ptr != nullptr){
         if(ptr -> s == s){
             prev -> next = ptr -> next;
+            delete ptr;
             return 0;
         }
         prev = ptr;
@@ -219,7 +221,7 @@ void UtPod::clearMemory(){
         delete ptr;
         ptr = ptr -> next;
     }
-    songs = nullptr;
+    //songs = nullptr;
 }
 
 
